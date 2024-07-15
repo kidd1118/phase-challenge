@@ -55,10 +55,10 @@ const pagesSlice = createSlice({
   name: "pages",
   initialState,
   reducers: {
-    selectPage(state, action) {
+    selectPage(state, action: { payload: IPage }) {
       state.map((item: IPage) => {
         const page = item;
-        if (page.id === action.payload) {
+        if (page.id === action.payload.id) {
           page.selected = true;
         } else {
           page.selected = false;
@@ -71,13 +71,13 @@ const pagesSlice = createSlice({
         return page;
       });
     },
-    selectElement(state, action) {
+    selectElement(state, action: { payload: IElement }) {
       const currentPage: IPage | undefined = state.find((page: IPage) => page.selected);
 
       if (currentPage) {
         currentPage.elements.map((item: IElement) => {
           const element = item;
-          if (element.id === action.payload) {
+          if (element.id === action.payload.id) {
             element.selected = true;
           } else {
             element.selected = false;
@@ -86,8 +86,31 @@ const pagesSlice = createSlice({
         });
       }
     },
+    setSelectedElementOpacity(state, action: { payload: number }) {
+      const currentPage: IPage | undefined = state.find((page: IPage) => page.selected);
+      if (currentPage) {
+        const newElement: IElement | undefined = currentPage.elements.find(
+          (element: IElement) => element.selected
+        );
+        if (newElement) {
+          newElement.opacity = action.payload;
+        }
+      }
+    },
+    setSelectedElementColor(state, action: { payload: string }) {
+      const currentPage: IPage | undefined = state.find((page: IPage) => page.selected);
+      if (currentPage) {
+        const newElement: IElement | undefined = currentPage.elements.find(
+          (element: IElement) => element.selected
+        );
+        if (newElement) {
+          newElement.color = action.payload;
+        }
+      }
+    },
   },
 });
 
-export const { selectPage, selectElement } = pagesSlice.actions;
+export const { selectPage, selectElement, setSelectedElementOpacity, setSelectedElementColor } =
+  pagesSlice.actions;
 export default pagesSlice;

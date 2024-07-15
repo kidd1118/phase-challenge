@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ColorPicker from "../colorPicker";
 import OpacityPicker from "../opacityPicker";
-import { useAppDispatch, useTypedSelector } from "../../hooks/useTypedSelector";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IPage } from "../../interface/page";
 import { RootState } from "../../store";
 import { IElement } from "../../interface/element";
@@ -18,7 +18,6 @@ const Label = styled.label`
 `;
 
 function RightPanel() {
-  const dispatch = useAppDispatch();
   const pages: Array<IPage> = useTypedSelector((state: RootState) => state.pages);
   const currentPage: IPage | undefined = pages.find((page: IPage) => page.selected);
   const elements: Array<IElement> = currentPage ? currentPage.elements : [];
@@ -26,6 +25,7 @@ function RightPanel() {
     (element: IElement) => element.selected
   );
   const opacity = currentElement ? currentElement.opacity : 255;
+  const color = currentElement ? currentElement.color : "#000";
 
   return (
     <RightPanelWrapper>
@@ -39,7 +39,7 @@ function RightPanel() {
         O <OpacityPicker value={opacity} />
       </Label>
       <Label>
-        B <ColorPicker />
+        B <ColorPicker value={color} />
       </Label>
     </RightPanelWrapper>
   );

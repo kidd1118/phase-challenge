@@ -18,11 +18,7 @@ function Elements() {
       <h4>Elements</h4>
       {elements &&
         elements.map((element: IElement) => (
-          <div
-            onClick={() => dispatch(selectElement(element.id))}
-            key={element.id}
-            aria-hidden="true"
-          >
+          <div onClick={() => dispatch(selectElement(element))} key={element.id} aria-hidden="true">
             {element.selected ? <strong>{element.name}</strong> : element.name}
           </div>
         ))}

@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
+import { setSelectedElementColor } from "../store/pages";
+import { useAppDispatch } from "../hooks/useTypedSelector";
 
 const ColorPickerWrapper = styled.div`
   display: flex;
@@ -25,11 +27,14 @@ const ColorLabel = styled.div`
   color: white;
 `;
 
-function ColorPicker() {
-  const [color, setColor] = useState("#00FF00");
+function ColorPicker({ value }: { value: string }) {
+  const dispatch = useAppDispatch();
+  const [color, setColor] = useState(value);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setColor(event.target.value);
+    const newColor = event.target.value;
+    setColor(newColor);
+    dispatch(setSelectedElementColor(newColor));
   };
 
   return (
