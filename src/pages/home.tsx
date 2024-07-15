@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import LeftPanel from "./LeftPanel";
-import Canvas from "./Canvas";
-import RightPanel from "./RightPanel";
+import LeftPanel from "../components/home/leftPanel";
+import Canvas from "../components/home/canvas";
+import RightPanel from "../components/home/rightPanel";
 
 const AppWrapper = styled.div`
   display: grid;
@@ -12,7 +12,8 @@ const AppWrapper = styled.div`
   height: 100vh;
   color: white;
 `;
-const App = () => {
+
+export default function Page() {
   return (
     <AppWrapper>
       <LeftPanel />
@@ -20,6 +21,4 @@ const App = () => {
       <RightPanel />
     </AppWrapper>
   );
-};
-
-export default App;
+}
