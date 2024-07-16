@@ -32,6 +32,7 @@ function Canvas() {
               color={element.color}
               name={element.name}
               id={element.id}
+              selected={element.selected}
             />
           ))}
       </Stage>
