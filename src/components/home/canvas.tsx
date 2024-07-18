@@ -78,6 +78,7 @@ function Canvas() {
                 name={element.name}
                 id={element.id}
                 selected={element.selected}
+                type={element.type}
               />
             </Container>
           ))}

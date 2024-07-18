@@ -2,8 +2,6 @@ import * as React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home";
 
-const { hostname } = window.location;
-
 export default createBrowserRouter(
   [
     {
@@ -12,6 +10,6 @@ export default createBrowserRouter(
     },
   ],
   {
-    basename: hostname.includes("localhost") ? "" : "/phase-challenge",
+    basename: "/phase-challenge",
   }
 );

@@ -2,6 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IPage } from "../interface/page";
 import { IElement } from "../interface/element";
+import { PolygonType } from "../constant/enum";
 
 const initialState: IPage[] = [
   {
@@ -19,6 +20,7 @@ const initialState: IPage[] = [
         color: "#00ff00",
         opacity: 255,
         selected: true,
+        type: PolygonType.Rectangle,
       },
       {
         x: 150,
@@ -29,6 +31,7 @@ const initialState: IPage[] = [
         id: 2,
         color: "#ff00ff",
         opacity: 255,
+        type: PolygonType.Rectangle,
       },
     ],
   },
@@ -46,6 +49,7 @@ const initialState: IPage[] = [
         color: "#0000ff",
         opacity: 128,
         selected: true,
+        type: PolygonType.Rectangle,
       },
     ],
   },

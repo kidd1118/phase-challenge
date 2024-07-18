@@ -1,3 +1,5 @@
+import { PolygonType } from "../constant/enum";
+
 export interface IElement {
   x: number;
   y: number;
@@ -7,5 +9,6 @@ export interface IElement {
   id: number;
   color: string;
   opacity: number;
+  type: PolygonType;
   selected?: boolean;
 }
