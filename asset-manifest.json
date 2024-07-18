@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.0a536cc5.css",
-    "main.js": "/static/js/main.92adec61.js",
-    "static/js/453.da510756.chunk.js": "/static/js/453.da510756.chunk.js",
-    "index.html": "/index.html",
-    "main.0a536cc5.css.map": "/static/css/main.0a536cc5.css.map",
-    "main.92adec61.js.map": "/static/js/main.92adec61.js.map",
-    "453.da510756.chunk.js.map": "/static/js/453.da510756.chunk.js.map"
+    "main.css": "/phase-challenge/static/css/main.0a536cc5.css",
+    "main.js": "/phase-challenge/static/js/main.3713ba3b.js",
+    "static/js/453.da510756.chunk.js": "/phase-challenge/static/js/453.da510756.chunk.js",
+    "index.html": "/phase-challenge/index.html",
+    "main.0a536cc5.css.map": "/phase-challenge/static/css/main.0a536cc5.css.map",
+    "main.3713ba3b.js.map": "/phase-challenge/static/js/main.3713ba3b.js.map",
+    "453.da510756.chunk.js.map": "/phase-challenge/static/js/453.da510756.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0a536cc5.css",
-    "static/js/main.92adec61.js"
+    "static/js/main.3713ba3b.js"
   ]
 }
