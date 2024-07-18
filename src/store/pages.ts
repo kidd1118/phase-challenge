@@ -108,9 +108,26 @@ const pagesSlice = createSlice({
         }
       }
     },
+    setSelectedElementPosition(state, action: { payload: { x: number; y: number } }) {
+      const currentPage: IPage | undefined = state.find((page: IPage) => page.selected);
+      if (currentPage) {
+        const newElement: IElement | undefined = currentPage.elements.find(
+          (element: IElement) => element.selected
+        );
+        if (newElement) {
+          newElement.x = action.payload.x;
+          newElement.y = action.payload.y;
+        }
+      }
+    },
   },
 });
 
-export const { selectPage, selectElement, setSelectedElementOpacity, setSelectedElementColor } =
-  pagesSlice.actions;
+export const {
+  selectPage,
+  selectElement,
+  setSelectedElementOpacity,
+  setSelectedElementColor,
+  setSelectedElementPosition,
+} = pagesSlice.actions;
 export default pagesSlice;

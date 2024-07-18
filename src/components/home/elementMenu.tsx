@@ -7,7 +7,7 @@ import { IElement } from "../../interface/element";
 import { selectElement } from "../../store/pages";
 
 const ElementsWrapper = styled.div``;
-function Elements() {
+function ElementMenu() {
   const dispatch = useAppDispatch();
   const pages: Array<IPage> = useTypedSelector((state: RootState) => state.pages);
   const currentPage: IPage | undefined = pages.find((page: IPage) => page.selected);
@@ -26,4 +26,4 @@ function Elements() {
   );
 }
 
-export default Elements;
+export default ElementMenu;

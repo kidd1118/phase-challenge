@@ -1,8 +1,13 @@
 import React, { useCallback } from "react";
 import { Graphics } from "@pixi/react";
 import { IElement } from "../interface/element";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@pixi/events";
+// import { selectElementById } from "../store/pages";
+// import { useAppDispatch } from "../hooks/useTypedSelector";
 
 function Rectangle(props: IElement) {
+  // const dispatch = useAppDispatch();
   const { x, y, width, height, color, opacity, selected } = props;
   const alpha = opacity / 255;
 

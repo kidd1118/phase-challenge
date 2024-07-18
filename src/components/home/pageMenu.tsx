@@ -10,7 +10,7 @@ const PagesWrapper = styled.div`
   padding-bottom: 16px;
 `;
 
-function Pages() {
+function PageMenu() {
   const dispatch = useAppDispatch();
   const pages: Array<IPage> = useTypedSelector((state: RootState) => state.pages);
 
@@ -27,4 +27,4 @@ function Pages() {
   );
 }
 
-export default Pages;
+export default PageMenu;

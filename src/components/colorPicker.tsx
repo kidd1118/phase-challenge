@@ -1,7 +1,10 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 import { setSelectedElementColor } from "../store/pages";
-import { useAppDispatch } from "../hooks/useTypedSelector";
+import { useAppDispatch, useTypedSelector } from "../hooks/useTypedSelector";
+import { IPage } from "../interface/page";
+import { RootState } from "../store";
+import { IElement } from "../interface/element";
 
 const ColorPickerWrapper = styled.div`
   display: flex;
@@ -27,13 +30,18 @@ const ColorLabel = styled.div`
   color: white;
 `;
 
-function ColorPicker({ value }: { value: string }) {
+function ColorPicker() {
   const dispatch = useAppDispatch();
-  const [color, setColor] = useState(value);
+  const pages: Array<IPage> = useTypedSelector((state: RootState) => state.pages);
+  const currentPage: IPage | undefined = pages.find((page: IPage) => page.selected);
+  const elements: Array<IElement> = currentPage ? currentPage.elements : [];
+  const currentElement: IElement | undefined = elements.find(
+    (element: IElement) => element.selected
+  );
+  const color = currentElement ? currentElement.color : 255;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newColor = event.target.value;
-    setColor(newColor);
     dispatch(setSelectedElementColor(newColor));
   };
 

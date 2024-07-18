@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Pages from "./pages";
-import Elements from "./elements";
+import Pages from "./pageMenu";
+import Elements from "./elementMenu";
 
 const LeftPanelWrapper = styled.div`
   padding: 8px;

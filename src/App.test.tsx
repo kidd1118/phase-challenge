@@ -1,10 +1,17 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import App from "./App";
 
-test("renders learn react link", () => {
+test("render test", async () => {
+  render(<div id="test">Page 01</div>);
+  const element = await screen.findByText("Page 01");
+  expect(element).toBeInTheDocument();
+});
+
+test("render test", async () => {
   render(<App />);
-  // const linkElement = screen.getByText(/Page/i);
-  // expect(linkElement).toBeInTheDocument();
-  expect(true).toEqual(true);
+  const element = await screen.findByText("Page 01");
+  console.log("element", element);
+  expect(element).toBeInTheDocument();
 });
